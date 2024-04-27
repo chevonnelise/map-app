@@ -9,7 +9,7 @@ dotenv.config();
 
 app.use(express.json());
 
-const port = process.env.PORT || 8000;
+const port = process.env.PORT;
 
 mongoose.connect(process.env.MONGO_URL).then(()=>{
     console.log("MongoDB connected");
@@ -19,5 +19,5 @@ app.use("/api/users", userRoute);
 app.use("/api/travelpins", travelRoute);
 
 app.listen(port, ()=>{
-    console.log("backend server is working")
+    console.log(`backend server is running on ${port}`)
 })

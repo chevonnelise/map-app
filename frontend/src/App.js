@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import Map, { Marker, Popup } from 'react-map-gl';
+import Map, { Marker } from 'react-map-gl';
+// import Map, { Marker, Popup } from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 // import StarIcon from '@mui/icons-material/Star';
@@ -26,20 +27,18 @@ function App() {
       <Map
         mapboxAccessToken={process.env.REACT_APP_MAPBOX}
         initialViewState={{
-          longitude: 17,
           latitude: 46,
+          longitude: 17,
           zoom: 4
         }}
         style={{ width: '100vw', height: '100vh' }}
         mapStyle="mapbox://styles/chevonnelise/clvi0ohoa000q01qu2k5b4hf5"
       >
+        
         {travelpins.map(p=>(
         <>
         {/* <Marker longitude={48.8584} latitude={2.2945} color="red"/> */}
-        <Marker 
-        longitude={p.long} 
-        latitude={p.lat} 
-        anchor="bottom" >
+        <Marker latitude={p.lat} longitude={p.long} anchor="bottom" >
           <LocationOnIcon sx={{ color: '#F535AA', fontSize: 40 }} />
         </Marker>
         {/* {showPopup && (
@@ -64,7 +63,7 @@ function App() {
               <span className="date">1 hour ago </span>
             </div>
           </Popup>)} */}
-          </>
+          </> 
         ))};
       </Map>
     </div>
